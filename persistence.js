@@ -1,4 +1,3 @@
-const { write } = require('fs')
 const fs = require('fs/promises')
 
 async function readAssignments() {
@@ -23,12 +22,18 @@ async function saveEmployeeList(employeeInfo) {
     await fs.writeFile('employees.json', JSON.stringify(employeeInfo, null, 2));
 }
 
-async function saveAssignments(assingmentsInfo) {
-    await fs.writeFile('assingments.json', JSON.stringify(assingmentsInfo, null, 2));
+async function saveAssignments(assignmentsInfo) {
+    await fs.writeFile('assingments.json', JSON.stringify(assignmentsInfo, null, 2));
 }
 async function addEmployee(newEmployee) {
     let employeeList = await readEmployees();
     employeeList.push(newEmployee)
     await saveEmployeeList(employeeList);
 }
-module.exports = {readAssignments, readShifts, readEmployees, saveEmployeeList, saveAssignments, addEmployee}
+
+async function addAssignment(assignmentInfo) {
+    let assignmentList = await readAssignments();
+    assignmentList.push(assignmentInfo)
+    await saveAssignments(assignmentList);
+}
+module.exports = {readAssignments, readShifts, readEmployees, saveEmployeeList, saveAssignments, addEmployee, addAssignment}
