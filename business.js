@@ -13,7 +13,6 @@ async function employeeInformation(emID) {
     } 
     return employee;
 }
-
 /**
  * 
  * @returns {Promise<Array>} - Returns the list of all employees.
@@ -33,7 +32,23 @@ async function employeeIDGenerator() {
     return "E" + String(newNumber).padStart(3, "0");
 }
 
+/**
+ * Adds new employee to the employee list.
+ * 
+ * @param {String} employeeName - The name of the new employee.
+ * @param {String} employeePhone - The phone number of the new employee.
+ * @returns {Promise<void>} A promise that resolves when the employee is added.
+ */
+async function addEmployeeToList(employeeName, employeePhone) {
+    let generatedID = await employeeIDGenerator();
+    let newEmployee = {
+        employeeId: generatedID,
+        name: employeeName,
+        phone: employeePhone
+    }
 
+    await persistence.addEmployee(newEmployee);
+}
 
 /**
  * Computes the shift duration in hours between two times.
@@ -172,4 +187,4 @@ async function viewEmployeeSchedule(emID) {
     return employeeShifts;
 }
 
-module.exports = { employeeInformation, listEmployees, employeeIDGenerator, computeShiftDuration, assigningShifts, viewEmployeeSchedule }
+module.exports = { employeeInformation, listEmployees, employeeIDGenerator, addEmployeeToList, computeShiftDuration, assigningShifts, viewEmployeeSchedule }
