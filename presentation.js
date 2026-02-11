@@ -77,6 +77,8 @@ async function findEmployee(emID) {
 
 /**
  * Main function that runs the command-line interface.
+ * 
+ * Added an extra option to look for one employee.
  */
 async function main() {
 
