@@ -10,7 +10,7 @@ async function listAllEmployees() {
     let employeeInformation = await business.listEmployees();
     let maxLength = 'Name'.length
 
-    for (let e of employeeInformation){
+    for (let e of employeeInformation) {
         if (e.name.length > maxLength) {
             maxLength = e.name.length
         }
@@ -30,10 +30,10 @@ async function listAllEmployees() {
  * @param {string} newEmployeePhone - The phone number of the new employee.
  * 
  */
-async function addNewEmployee(newEmployeeName, newEmployeePhone){
+async function addNewEmployee(newEmployeeName, newEmployeePhone) {
     await business.addEmployeeToList(newEmployeeName, newEmployeePhone);
     console.log("New Employee Added")
-    
+
 }
 
 /**
@@ -45,7 +45,7 @@ async function addNewEmployee(newEmployeeName, newEmployeePhone){
 async function assignShift(empID, shiftID) {
     let assigning = await business.assigningShifts(empID, shiftID);
     console.log(assigning)
-    
+
 }
 
 /**
@@ -55,11 +55,11 @@ async function assignShift(empID, shiftID) {
  */
 async function viewSchedule(empID) {
     let schedule = await business.viewEmployeeSchedule(empID);
-    if (schedule.length === 0){
+    if (schedule.length === 0) {
         return console.log("No schedule for this employee.")
     }
     console.log("date,startTime,endTime")
-    console.log(schedule)
+    console.log(schedule);
 }
 
 /**
@@ -67,7 +67,7 @@ async function viewSchedule(empID) {
  * 
  * @param {string} emID - Employee ID
  */
-async function findEmployee(emID){
+async function findEmployee(emID) {
     let result = await business.employeeInformation(emID);
     console.log("Employee Information:")
     console.log("Employee ID: " + result.employeeId);
@@ -106,7 +106,7 @@ async function main() {
             let empID = prompt("Enter employee ID: ")
             await viewSchedule(empID);
         }
-        else if (selection == 5){
+        else if (selection == 5) {
             let emID = prompt("Enter the ID of the employee you want to find: ")
             await findEmployee(emID);
         }
