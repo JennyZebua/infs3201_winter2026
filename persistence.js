@@ -68,5 +68,10 @@ async function addAssignment(assignmentInfo) {
  * 
  * @returns {number} config.maxDailyHours - The maximum number of working hours an employee can have in a day.
  */
+async function readMaxHours(){
+    let data = await fs.readFile("config.json", "utf8")
+    let config = JSON.parse(data)
+    return config
+}
 
-module.exports = {readAssignments, readShifts, readEmployees, findEmployee, addEmployee, addAssignment}
+module.exports = {readAssignments, readShifts, readEmployees, findEmployee, addEmployee, addAssignment, readMaxHours}
