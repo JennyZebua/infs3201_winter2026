@@ -157,7 +157,8 @@ async function main() {
         console.log('2. Add new employee')
         console.log('3. Assign employee to shift')
         console.log('4. View employee schedule')
-        console.log('5. Exit')
+        console.log('5. Find employee')
+        console.log('6. Exit')
         let selection = Number(prompt("What is your choice> "))
         if (selection == 1) {
             await listAllEmployees()
@@ -175,8 +176,10 @@ async function main() {
         else if (selection == 4) {
             let empID = prompt("Enter employee ID: ")
             await viewSchedule(empID)
+        } else if (selection == 5){
+
         }
-        else if (selection == 5) {
+        else if (selection == 6) {
             break
         }
         else {

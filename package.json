@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/JennyZebu/Assignment2_60306941/issues"
   },
-  "homepage": "https://github.com/JennyZebu/Assignment2_60306941#readme"
+  "homepage": "https://github.com/JennyZebu/Assignment2_60306941#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }

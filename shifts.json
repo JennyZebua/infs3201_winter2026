@@ -1,5 +1,7 @@
-[{"shiftId": "S001", "date": "2026-01-05", "startTime": "08:00", "endTime": "15:00"},
-{"shiftId": "S002", "date": "2026-01-07", "startTime": "07:00", "endTime": "12:00"},
+[
+{"shiftId": "S001", "date": "2026-01-07", "startTime": "08:00", "endTime": "15:00"},
+{"shiftId": "S002", "date": "2026-01-07", "startTime": "15:00", "endTime": "19:00"},
 {"shiftId": "S003", "date": "2026-01-11", "startTime": "12:00", "endTime": "18:00"},
-{"shiftId": "S004", "date": "2026-01-16", "startTime": "08:00", "endTime": "15:00"},
-{"shiftId": "S005", "date": "026-01-20", "startTime": "13:00", "endTime": "19:00"}]
+{"shiftId": "S004", "date": "2026-01-16", "startTime": "08:00", "endTime": "11:00"},
+{"shiftId": "S005", "date": "2026-01-20", "startTime": "13:00", "endTime": "19:00"}
+]
