@@ -62,18 +62,6 @@ async function viewSchedule(empID) {
     console.log(schedule);
 }
 
-/**
- * Finds and displays information about the specific employee.
- * 
- * @param {string} emID - Employee ID
- */
-async function findEmployee(emID) {
-    let result = await business.employeeInformation(emID);
-    console.log("Employee Information:")
-    console.log("Employee ID: " + result.employeeId);
-    console.log("Name: " + result.name);
-    console.log("Phone: " + result.phone);
-}
 
 /**
  * Main function that runs the command-line interface.
