@@ -85,7 +85,20 @@ app.get("/employees/:employeeId", async (req, res) => {
     });
 });
 
+app.post('/edit/:employeeId', async (req, res) => {
+    let employeeId = req.params.employeeId;
+    let { name, phone } = req.body;
 
+
+    let validate = await business.updateEmployeeDetails(employeeId, { name, phone });
+
+    if (validate === "Empty") {
+        return res.status(400).render('error', { message: "Name must be non-empty" });
+    } else if (validate === "Invalid") {
+        return res.status(400).render('error', { message: "Phone number invalid" });
+    }
+    res.render('success', { message: "Employee successfully updated" });
+});
 app.listen(8000, () => {
     console.log('Server is running');
 });
