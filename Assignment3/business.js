@@ -204,4 +204,4 @@ async function updateEmployeeDetails(empID, updatedDetails) {
 
 
 
-module.exports = { employeeInformation, listEmployees, employeeIDGenerator, addEmployeeToList, computeShiftDuration, assigningShifts, viewEmployeeSchedule, updateEmployeeDetails}
+module.exports = { employeeIDGenerator, addEmployeeToList, computeShiftDuration, assigningShifts, viewEmployeeSchedule, updateEmployeeDetails}
