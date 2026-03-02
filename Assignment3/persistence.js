@@ -70,4 +70,4 @@ async function updateEmployeeDetails(empID, newDetails){
 }
 
 
-module.exports = {readAssignments, readEmployees, readShifts, findEmployee, addEmployee, addAssignment, readMaxHours, updateEmployeeDetails}
+module.exports = { readEmployees, readShifts, findEmployee, addEmployee, addAssignment, readMaxHours, updateEmployeeDetails}
