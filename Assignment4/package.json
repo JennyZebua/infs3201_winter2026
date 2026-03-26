@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.6",
+    "mongodb": "^7.1.0"
+  },
+  "name": "assignment3_60306941",
+  "version": "1.0.0",
+  "description": "",
+  "main": "transform_db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JennyZebua/infs3201_winter2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JennyZebua/infs3201_winter2026/issues"
+  },
+  "homepage": "https://github.com/JennyZebua/infs3201_winter2026#readme"
+}
