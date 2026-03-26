@@ -117,3 +117,17 @@ async function addEmployeeToShift(sID, empID) {
         { $addToSet: { employees: e } }
     )
 }
+
+module.exports = { getUserDetails, 
+    saveSession, 
+    getSessionData, 
+    addLog,
+    deleteSession, 
+    readEmployees, 
+    readShifts, 
+    findEmployee, 
+    addEmployee, 
+    readMaxHours, 
+    updateEmployeeDetails, 
+    getEmployeeShifts,
+    addEmployeeToShift }
