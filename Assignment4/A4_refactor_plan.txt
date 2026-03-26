@@ -1,0 +1,69 @@
+1. Collections that will change:
+- employees = remove employeeId, name, phone, photo
+- shifts = remove shiftId, add employees arrays
+- assignments = removed completely
+- config = contains dailyMaxHours
+- sessionData = new collection for security logging
+
+2. Persistence functions that must be modified or removed:
+- readEmployees() = has to work without employeeId
+- readShifts() = work with embedded employees arrays
+- findEmployee(empID) - Uses _id instead of employeeId string
+- addEmployee(newEmployee) - Removes employeeId generation, relies on MongoDB _id
+- updateEmployeeDetails(empID, newDetails) - Uses _id lookup instead of employeeId
+
+- addLog(timestamp, username, url, method) - Creates security log entry
+- getUserDetails() = finds by username
+- saveSession(uuid, expiry, userData) - Stores session with expiry
+- getSessionData(key) - Retrieves session if not expired
+- deleteSession(key) - Removes session
+
+- readAssignments() - deleted (no assignments collection)
+- addAssignment() - deleted (no assignments collection)
+
+- getEmployeeShifts() = to find employees assigned shifts
+- addEmployeeToShift() = assign an employee to a shift
+
+
+3. Required changes to business logic functions
+
+- employeeInformation(emID): Use _id instead of employeeId
+- listEmployees(): adjust to work with new employee structure
+- assigningShifts(emID, sID): rewrite to use embedded employees array instead of assignments collection
+- viewEmployeeSchedule(emID): rewrite to query shifts with employee _id
+- updateEmployeeDetails(empID, updatedDetails): Use _id lookup instead of employeeId
+- employeeIDGenerator() - No longer needed
+
+4. How embedded arrays will affect update operations
+
+The shift.employees array contains ObjectId references to employee documents.
+
+Update Operations:
+- Adding employee to shift: $push operation on shift.employees array
+- Removing employee from shift: $pull operation on shift.employees array
+- Finding shifts for employee: Query shifts where employees contains employee _id
+- Checking shift conflicts: Query shifts with same date/time range and employees overlap
+
+5. Risks or complications you anticipate
+
+a. Data Migration Risks:
+   - Loss of relationships if transformation script fails
+   - Duplicate or missing assignments during embedding
+   - Need database backup before migration
+
+b. Code Changes:
+   - Many functions expecting employeeId strings will need rewriting
+   - URL parameters currently use employeeId (E001), must change to _id strings
+
+c. Assignment Logic Complexity:
+   - Checking shift conflicts requires querying shifts with employee _id
+   - Daily hour limit calculation more complex (need to query shifts)
+
+d. Authentication/Authorization:
+   - New session management required
+   - Access logging adds complexity
+
+e. Performance
+   - Embedded arrays may grow large if many employees per shift
+   - Indexing strategy needed on date, startTime, employees array
+   - Photo storage and retrieval
