@@ -174,16 +174,3 @@ app.post('/login', async (req,res)=>{
     res.redirect('/')
 })
 
-
-app.get('/logout', async (req,res) => {
-    let sessionId = req.cookies.newSession
-    if (sessionId !== undefined){
-        await business.deleteSession(sessionId)
-        res.clearCookie('newSession')
-    }
-    res.redirect('/login?message=You have been logged out')
-})
-
-app.listen(8000, () => {
-    console.log('Server is running');
-});
