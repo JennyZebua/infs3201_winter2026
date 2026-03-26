@@ -1,0 +1,25 @@
+<h1>Employee Details</h1>
+{{#if photo}}
+    <img src="{{photo}}" alt="{{name}}" style="width: 200px; border-radius: 10px; border: 2px solid rgb(68, 68, 68) ">
+{{/if}}
+<p>Name: {{name}}</p>
+<p>Phone: {{phone}}</p>
+{{#if allowEdit}}
+    <a href="/edit/{{_id}}">Edit Details</a>
+{{/if}}
+
+<h2>Shifts</h2>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+    </tr>
+    {{#each shifts}}
+    <tr>
+        <td>{{this.date}}</td>
+        <td style="{{#if this.beforeNoon}}background-color: yellow{{/if}}">{{this.startTime}}</td>
+        <td>{{this.endTime}}</td>
+    </tr>
+    {{/each}}
+</table>

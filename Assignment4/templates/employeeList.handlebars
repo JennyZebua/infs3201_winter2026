@@ -1,0 +1,10 @@
+<h1>List of Employees</h1>
+<p>Welcome, {{username}}!</p>
+<div>
+  <a href="/logout">Logout</a>
+</div>
+<ul>
+  {{#each employeeList}}
+    <li><a href="/employees/{{this._id}}">{{this.name}}</a></li>
+  {{/each}}
+</ul>
