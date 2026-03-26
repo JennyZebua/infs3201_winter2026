@@ -12,28 +12,6 @@ function hashPassword(password) {
     return crypto.createHash('sha256').update(password).digest('hex');
 }
 
-/**
- * Validates user credentials and returns user information if authentication succeeds.
- * 
- * @param {string} username - The username to authenticate.
- * @param {string} password - The plain text password to verify.
- * @returns {Promise<Object|undefined>} A promise that resolves to an object containing username and role if authentication succeeds, or undefined if authentication fails.
- */
-async function checkLogin(username, password) {
-    let user = await persistence.getUserDetails(username)
-    if (!user) {
-        return undefined;
-    }
-    let hashed = hashPassword(password);
-
-    if (user.password === hashed) {
-        return {
-            username: user.username,
-            role: user.role
-        }
-    }
-    return undefined
-}
 
 /**
  * Creates a new session for authenticated users.
