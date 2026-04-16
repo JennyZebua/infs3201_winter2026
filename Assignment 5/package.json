@@ -1,0 +1,32 @@
+{
+  "name": "assignment4_60306941",
+  "version": "1.0.0",
+  "description": "User Accounts",
+  "main": "business.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JennyZebua/infs3201_winter2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JennyZebua/infs3201_winter2026/issues"
+  },
+  "homepage": "https://github.com/JennyZebua/infs3201_winter2026#readme",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cookie-parser": "^1.4.7",
+    "crypto": "^1.0.1",
+    "express": "^5.2.1",
+    "express-fileupload": "^1.5.2",
+    "express-handlebars": "^8.0.6",
+    "mongodb": "^7.1.1",
+    "multer": "^2.1.1",
+    "nodemailer": "^8.0.5"
+  }
+}

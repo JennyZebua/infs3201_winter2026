@@ -1,0 +1,55 @@
+<h1>Documents for {{employeeName}}</h1>
+
+
+<div>
+    <a href="/employees/{{employeeId}}">Back to Employee Details</a>
+</div>
+
+{{#if errorMessage}}
+    <div>
+        {{errorMessage}}
+    </div>
+{{/if}}
+
+<h2>Upload New Document</h2>
+<form action="/documents/{{employeeId}}/upload" method="POST" enctype="multipart/form-data">
+    <label for="document">Select PDF File:</label>
+    <input type="file" id="document" name="document" accept=".pdf" required>
+    <br>
+    <small>Maximum file size: 2MB (PDF files only)</small>
+    <br><br>
+    <input type="submit" value="Upload Document">
+</form>
+
+<h2>Current Documents ({{docCount}}/5)</h2>
+
+{{#if documents.length}}
+    <table cellpadding="10">
+        <thead>
+            <tr>
+                <th>Filename</th>
+                <th>Size</th>
+                <th>Upload Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each documents}}
+            <tr>
+                <td>{{this.originalName}}</td>
+                <td>{{this.displaySize}}</td>
+                <td>{{this.uploadDate}}</td>
+                <td>
+                    <a href="/documents/{{../employeeId}}/view/{{this.id}}" target="_blank">View PDF</a>
+                    |
+                    <form action="/documents/{{../employeeId}}/delete/{{this.id}}" method="POST" style="display: inline;">
+                        <input type="submit" value="Delete" onclick="return confirm('Delete this document?')">
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>No documents uploaded yet.</p>
+{{/if}}

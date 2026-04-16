@@ -1,0 +1,17 @@
+<h1>Two Factor Authentication</h1>
+
+<div>
+{{#if message}}
+    <div>
+        {{message}}
+    </div>
+{{/if}}
+</div>
+
+<form method="POST" action="/verification">
+    <input type="hidden" name="username" value="{{username}}">
+    <label>Authentication Code:</label>
+    <input name="code" required>
+    <br><br>
+    <input type="submit" value="Verify">
+</form>
